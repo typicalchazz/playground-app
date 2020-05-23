@@ -1,31 +1,31 @@
-import React from 'react'
+import React from 'react';
+//import logo from './logo.svg';
 import './App.css';
 
-function App() {
-  //const [values,setValues] = useState("")
-  
-  const handleChange = event => {
+const InputForm = () => {
+  const [value, setValue] = React.useState("");
+
+  const printValues = event => {
     event.preventDefault();
-    console.log(event.target.value);
-  }
-  
-  
+    console.log(value * 2);
+  };
+
   return (
-    <form>
-      <h1>Playground App Form</h1>
-        <label>
-          Value 1:
-          <input type="text" name="name" />
-        </label>
-      <br/>
-      <br/>
-      <input 
-        type="submit" 
-        value="Submit Values"
-        onChange = {handleChange}
-      />
+    <form onSubmit={printValues}>
+      <h1>Playground App</h1>
+      <label>
+        Enter Value:
+        <input
+          value={value}
+          onChange={({ target: { value } }) => setValue(value)}
+        />
+      </label>
+      <br />
+      <button>Submit</button>
+      <br />
+      <p>Value in Box: {value}</p>
     </form>
   );
-}
+};
 
-export default App;
+export default InputForm;
