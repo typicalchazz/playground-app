@@ -4,11 +4,11 @@ import './App.css';
 
 const Form = () => {
   const [value, setValue] = React.useState("");
-  //const [value2, setValue2] = React.useState("");
+  const [value2, setValue2] = React.useState("");
 
   const printValues = event => {
     event.preventDefault();
-    console.log(value * 2);
+    console.log(value * value2);
   };
 
   return (
@@ -22,7 +22,15 @@ const Form = () => {
         />
       </label>
       <br />
-      <button>Submit</button>
+      <label>
+        Enter Value 2:
+        <input
+          value={value2}
+          onChange={({ target: { value } }) => setValue2(value)}
+        />
+      </label>
+      <br/>
+      <button type = "submit">Submit</button>
     </form>
   );
 };
