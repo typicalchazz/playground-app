@@ -8,7 +8,9 @@ const Form = () => {
 
   const printValues = event => {
     event.preventDefault();
-    console.log(value * value2);
+    console.log(value);
+    console.log(value2);
+    console.log(event.target);
   };
 
   return (
